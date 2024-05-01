@@ -1,0 +1,29 @@
+Time complexity : O(n)
+Space complexity : O(n)
+
+class Solution {
+    public String reversePrefix(String word, char ch) {
+        StringBuilder sb = new StringBuilder(word);
+        int idx = 0;
+        for(int i=0;i<sb.length();i++){
+            if(sb.charAt(i) == ch){
+                idx = i;
+                break;
+            }
+        }
+
+        if(idx == 0){
+            return word;
+        }
+        int j=0;
+        while(j <= idx){
+            char temp = sb.charAt(j);
+            sb.setCharAt(j, sb.charAt(idx));
+            sb.setCharAt(idx, temp);
+            j++;
+            idx--;
+        }
+
+        return sb.toString();
+    }
+}
