@@ -32,6 +32,26 @@ class Solution {
             st.add(num);
         }
         return result;
+    }   
+}
+
+************************************************************************************************************************
+Approach : using element as index
+time complexity : O(n)
+Space complexity : O(1)
+
+class Solution {
+    public int findMaxK(int[] nums) {
+        int[] index = new int[2001];
+
+        int result = -1;
+        for(int val : nums){
+            if(index[-val + 1000] == 1){
+                result = Math.max(result, Math.abs(val));
+            }
+
+            index[val + 1000] = 1; 
+        }
+        return result;
     }
-    
 }
