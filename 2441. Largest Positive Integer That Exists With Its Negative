@@ -1,3 +1,22 @@
+Approach : Nested Loop
+Time complexity : O(n^2)
+
+class Solution {
+    public int findMaxK(int[] nums) {
+        int result = -1;
+        for(int i : nums){
+            for(int j : nums){
+                if(i == -j){
+                    result = Math.max(result, i);
+                }
+            }
+        }
+        return result;
+    }
+}
+
+**************************************************************************************************************
+
 Approach 2: using set
 Time complexity : O(n)
 Space complexity : O(n)
