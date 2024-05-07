@@ -1,0 +1,26 @@
+class Solution {
+    public ListNode doubleIt(ListNode head) {
+        ListNode t = head;
+        ListNode temp = new ListNode(1);
+        temp.next = head;
+        int carry = 0;
+        ListNode a = temp;
+        while(head != null){
+            if(head.next == null || head.next.val > 4 ){
+                if(head.next == null){
+                    a.next = new ListNode((2*head.val)%10);
+                }else{
+                    a.next = new ListNode((2*head.val+1)%10);
+                    carry = (2*head.val+1)/10;
+                }
+            }else{
+                a.next = new ListNode((2*head.val)%10);
+            }
+            a = a.next;
+            head = head.next;
+        }
+
+        if(t.val > 4) return temp;
+        else return temp.next;
+    }
+}
