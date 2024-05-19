@@ -1,0 +1,27 @@
+Approach : Greedy
+Time complexity : O(n)
+
+
+class Solution {
+    public long maximumValueSum(int[] nums, int k, int[][] edges) {
+        long total = 0;
+        long minLoss = Integer.MAX_VALUE;
+        long count = 0;
+
+        for(int num : nums){
+            if((num ^ k) > num){
+                count++;
+                total += num ^ k;
+            }else{
+                total += num;
+            }
+
+            minLoss = Math.min(minLoss, Math.abs(num - (num ^ k)));
+        }   
+
+        if(count % 2 == 0){
+            return total;
+        }
+        return total - minLoss;
+    }
+}
