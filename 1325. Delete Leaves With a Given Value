@@ -1,5 +1,5 @@
 Time complexity : O(n)
-Space complexity : O(h) //Height of the tree
+Space complexity : O(h) //depth of the tree
 
 class Solution {
     public TreeNode removeLeafNodes(TreeNode root, int target) {
