@@ -32,3 +32,29 @@ class Solution {
         return sum;
     }
 }
+
+**********************************************************
+Approach = 2
+Time complexity : O(2^n)
+space complexity : O(n) 
+
+class Solution {
+    public int helper(int[] num, int i,int xor){
+        if(i == num.length){
+            return xor;
+        }
+        
+        int include = helper(num, i+1, num[i] ^xor);
+        
+        int exclude = helper(num, i+1,xor);
+
+        return include + exclude;
+
+    }
+    public int subsetXORSum(int[] nums) {
+        
+        int result = helper(nums, 0, 0);
+
+        return result;
+    }
+}
