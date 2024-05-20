@@ -58,3 +58,19 @@ class Solution {
         return result;
     }
 }
+
+******************************************************************************************************************
+Approach : 3
+Time complexity : O(n)
+Space complexity : O(1)
+
+class Solution {
+    public int subsetXORSum(int[] nums) {
+        int total = 0;
+        for(int num : nums){
+            total |= num;
+        }
+        int n = nums.length;
+        return total << (n-1);
+    }
+}
