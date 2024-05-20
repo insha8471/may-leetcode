@@ -1,0 +1,34 @@
+Approach 1
+Time complexity : O(2^n * l)
+space complexity : O(2^n * l)
+
+class Solution {
+    public void helper(int[] num, int i,List<Integer> temp, List<List<Integer>> sub){
+        if(i == num.length){
+            sub.add(new ArrayList<>(temp));
+            return;
+        }
+        
+
+        temp.add(num[i]);
+        helper(num, i+1, temp, sub);
+        temp.remove(temp.size()-1);
+        helper(num, i+1,temp, sub);
+
+    }
+    public int subsetXORSum(int[] nums) {
+        List<List<Integer>> sub = new ArrayList<>();
+
+        helper(nums, 0,new ArrayList<>() ,sub);
+
+        int sum = 0;
+        for(List<Integer> val : sub){
+            int xor = 0;
+            for(int x : val){
+                xor ^= x;
+            }
+            sum += xor;
+        }
+        return sum;
+    }
+}
