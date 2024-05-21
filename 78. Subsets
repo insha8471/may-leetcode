@@ -1,0 +1,27 @@
+Approach : Backtracing
+Time complexity : O(2^n*l)
+Space complexity : O(2^n)
+
+
+class Solution {
+    public void helper(int[] nums, int i, List<Integer> temp, List<List<Integer>> sub){
+        if(i == nums.length){
+            sub.add(new ArrayList<>(temp));
+            return;
+        }
+
+        temp.add(nums[i]);
+        //take
+        helper(nums,i+1,temp,sub);
+        //backtracking
+        temp.remove(temp.size()-1);
+        //not take
+        helper(nums,i+1, temp, sub);
+    }
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+
+        helper(nums, 0, new ArrayList<>(), res);
+        return res;
+    }
+}
