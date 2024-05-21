@@ -1,6 +1,6 @@
 Approach : Backtracing
 Time complexity : O(2^n*l)
-Space complexity : O(2^n)
+Space complexity : O(2^n * l)
 
 
 class Solution {
