@@ -55,3 +55,28 @@ class Solution {
     }
 }
 
+Aooroach 3 : counting Sort + Prefix Sum 
+Time complexity : O(n)
+Space complexity : O(n)
+
+
+class Solution {
+    public int specialArray(int[] nums) {
+        int n = nums.length;
+        int[] freq = new int[n+1];
+        for(int num : nums){
+            freq[Math.min(n,num)]++;
+        }
+
+        //cumulative sum 
+        int cumSum = 0;
+        for(int x=n; x>=0 ;x--){
+            cumSum += freq[x];
+
+            if(cumSum == x){
+                return x;
+            }
+        }
+        return -1;
+    }
+}
