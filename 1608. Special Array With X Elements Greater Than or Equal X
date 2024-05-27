@@ -19,3 +19,39 @@ class Solution {
         return -1;
     }
 }
+
+
+Approach 2 : Binary Search
+Time complexity : O(nlogn);
+Spacee complexity : O(1)
+
+class Solution {
+    public int binarySearch(int x , int[] nums){
+        int left = 0;
+        int right = nums.length;
+
+        while(left < right){
+            int mid = (left + right)/2;
+            if(nums[mid] >= x){
+                right = mid;
+            }else{
+                left = mid+1;
+            }
+        }
+        return left;
+    }
+    public int specialArray(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+
+        for(int i=1;i<=n;i++){
+            int leftIdx = binarySearch(i, nums);
+
+            if((n - leftIdx) == i){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
