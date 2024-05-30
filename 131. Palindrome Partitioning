@@ -1,7 +1,5 @@
 Time complexity : O(2^n * (n/2)*k)
 
-
-
 class Solution {
     public boolean palindrome(int i, int j, String s){
         while(i <= j){
